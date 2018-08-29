@@ -33,11 +33,20 @@ module.exports = {
     'songs' : {
         'js': require('./repo-songs.js.ejs'),
     },
+    'authors' : {
+        'js': require('./repo-songs.js.ejs'),
+    },
     'bootstrap' : {
         'css': require('./bootstrap.css.ejs'),
     },
     'system-event-end' : {
         'js': require('./system-event-end.js.ejs'),
         'html': require('./system-event-end.html.ejs'),
+    },
+    'list-authors' : {
+        'html': require('./c-list-authors.html.ejs'),
+    },
+    'view-container-application' : {
+        'html': require('./c-view-container-application.html.ejs'),
     },
 }
