@@ -1,25 +1,36 @@
 module.exports = {
-    'action-read-card' : {
-        'js': require('./action-read-card.js.ejs'),
+    'action-change-song' : {
+        'js': require('./action-change-song.js.ejs'),
     },
-    'action-update-level-1' : {
-        'js': require('./action-update-level-1.js.ejs'),
+    'action-start-song' : {
+        'js': require('./action-start-song.js.ejs'),
     },
-    'main' : {
-        'css': require('./main.css.ejs'),
+    'action-stop-song' : {
+        'js': require('./action-stop-song.js.ejs'),
     },
-    'index' : {
-        'html': require('./index.html.ejs'),
+    'details-player-playing' : {
+        'html': require('./c-details-player.html.ejs'),
+    },
+    'details-player-stopped' : {
+        'html': require('./c-details-player.html.ejs'),
+    },
+    'list-songs' : {
+        'html': require('./c-list-songs.html.ejs'),
     },
     'gulpfile' : {
         'js': require('./gulpfile.js.ejs'),
     },
-    'answers' : {
-        'js': require('./answers.js.ejs'),
-        'jsos': require('./answers.json.ejs'),
+    'index' : {
+        'html': require('./index.html.ejs'),
+        'js': require('./index.js.ejs'),
     },
-    'questions' : {
-        'js': require('./questions.js.ejs'),
-        'jsos': require('./questions.json.ejs'),
+    'mediaplayer' : {
+        'js': require('./mediaplayer.js.ejs'),
+    },
+    'package' : {
+        'json': require('./package.json.ejs'),
+    },
+    'songs' : {
+        'js': require('./repo-songs.js.ejs'),
     },
 }

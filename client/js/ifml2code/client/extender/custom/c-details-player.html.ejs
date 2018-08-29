@@ -1,7 +1,7 @@
-<h3><%=name %></h3>
+<h3>Now Playing</h3>
 <dl class="dl-horizontal" data-bind="if: item">
 <% for (var i = 0; i < fields.length; i += 1) { -%>
-        <dt><%= fields[i]%></dt>
+        <dt><%= fields[i].replace(/\w/, c => c.toUpperCase())%></dt>
         <dd data-bind="text: item()['<%= fields[i] %>']"></dd>
 <% } -%>
 </dl>
@@ -11,7 +11,7 @@
            if (events[i].stereotype == 'system') { -%>
     <c-<%= events[i].id %> params="trigger: trigger.bind($data,'<%= events[i].id %>')"></c-<%= events[i].id %>>
 <%         } else { -%>
-    <a class="col-xs-2 btn btn-primary" data-bind="click: trigger.bind($data, '<%= events[i].id %>')"><%= events[i].name %></a>
+    <a class="col-xs-2 btn btn-primary" data-bind="click: trigger.bind($data, '<%= events[i].id %>')"><%= events[i].name.toUpperCase() %></a>
 <%         }
        } -%>
 </div>

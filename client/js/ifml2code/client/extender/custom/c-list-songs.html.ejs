@@ -2,13 +2,8 @@
 <table class="table table-hover table-condensed">
     <thead>
         <tr>
-            <th>#</th>
-<% for (var i = 0; i < fields.length; i += 1) { -%>
-            <th><%= fields[i]%></th>
-<% }
-   if (events.length) { -%>
-            <th>actions</th>
-<% } -%>
+            <th>Author</th>
+            <th>Title</th>
         </tr>
     </thead>
     <tbody data-bind="foreach: items">
@@ -17,7 +12,6 @@
 <% } else { -%>
         <tr data-bind="click: $parent.select">
 <% } -%>
-            <td data-bind="text: id"></td>
 <%   for (var i = 0; i < fields.length; i += 1) { -%>
             <td data-bind="text: $data['<%= fields[i] %>']" style="white-space: pre-wrap;"></td>
 <%

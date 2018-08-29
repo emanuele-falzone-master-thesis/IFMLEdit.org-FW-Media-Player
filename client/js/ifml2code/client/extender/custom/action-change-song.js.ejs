@@ -3,45 +3,37 @@
 
 var Promise = require('bluebird');
 
-function Action() { // add "options" parameters if needed
-    // TODO: Global Initialization
-    /*
-    example:
-    this.collection = options.repositories.mail;
-    */
+function Action(options) {
+    this.mediaplayer = options.mediaplayer;
 }
-Action.prototype.run = function (parameters, solve) { // add "onCancel" parameters if needed
+
+Action.prototype.run = function (parameters, solve) {
     // Parameters:
 <% for (var i = 0; i < parameters.length; i += 1) { -%>
     // parameters['<%= parameters[i]%>']
 <% } -%>
 
-    // TODO: Execution
-    /*
-    example:
-    mail.find({subject: 'Re: ' + data.subject})
-        .then(solve);
-    */
-    // THIS CAN BE REMOVED (BEGIN)
-    $.notify({message: '<%= name%>'}, {allow_dismiss: true, type: 'success'});
-    solve({
+    this.mediaplayer.stop();
+    this.mediaplayer.play(parameters['song']).then(function () {
+        $.notify({message: '<%= name%>'}, {allow_dismiss: true, type: 'success'});
+        solve({
 <% if (events.length) { -%>
-        event: '<%= events[0].id%>', // <%= events[0].name%>
+            event: '<%= events[0].id%>', // <%= events[0].name%>
 <% } -%>
 <% for (var i = 1; i < events.length; i += 1) { -%>
-        // event: '<%= events[i].id%>', // <%= events[i].name%>
+            // event: '<%= events[i].id%>', // <%= events[i].name%>
 <% } -%>
-        data: {
+            data: {
 <% for (var i = 0; i < results.length; i += 1) {
-       if (parameters.indexOf(results[i]) === -1) { -%>
-            '<%= results[i]%>': '0',
+        if (parameters.indexOf(results[i]) === -1) { -%>
+                '<%= results[i]%>': '0',
 <%     } else { -%>
-            '<%= results[i]%>': parameters['<%= results[i]%>'],
+                '<%= results[i]%>': parameters['<%= results[i]%>'],
 <%     }
-   } -%>
-        }
+} -%>
+            }
+        });
     });
-    // THIS CAN BE REMOVED (END)
 };
 
 exports.createAction = function (options) {
