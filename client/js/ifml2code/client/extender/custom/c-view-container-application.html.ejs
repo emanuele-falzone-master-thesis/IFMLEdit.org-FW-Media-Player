@@ -1,8 +1,16 @@
 <span>
-<% for (var i = 0; i < children.length; i+=1) { -%>
-    <!-- <%= children[i].name %> -->
-    <c-<%= children[i].id %> params="context: context"></c-<%= children[i].id %>>
-<% } -%>
+    <span class="col-sm-8">
+        <!-- Authors -->
+        <c-list-authors params="context: context">
+        </c-list-authors>
+        <!-- Songs -->
+        <c-list-songs params="context: context">
+        </c-list-songs>
+    </span>
+    <!-- Player -->
+    <c-view-container-xor-player params="context: context"
+        class="col-sm-4">
+    </c-view-container-xor-player>
 <% for (var i = 0; i < events.length; i += 1) {
        if (events[i].stereotype == 'system') { -%>
   <c-<%= events[i].id %> params="trigger: trigger.bind($data,'<%= events[i].id %>')"></c-<%= events[i].id %>>

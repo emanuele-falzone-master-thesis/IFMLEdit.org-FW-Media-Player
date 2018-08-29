@@ -15,7 +15,7 @@ function Repository(options) {
             inMemoryOnly: true
         }));
         $.ajax({
-            url: "http://emanuele.falzone.gitlab.io/almostjs-demo-game-data/songs.json",
+            url: "http://emanuele.falzone.gitlab.io/almostjs-demo-game-data/<%=name%>.json",
         }).done(function (songs) {
             collection.insert(songs);
             resolve(collection);
