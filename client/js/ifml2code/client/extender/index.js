@@ -72,7 +72,9 @@ exports.rules = [
             return {
                 'js': {children: ['mediaplayer'] },
                 'mediaplayer': { name: 'mediaplayer.js', content: custom.mediaplayer.js() },
-                
+                'src': {children: ['css-folder'] },
+                'css-folder': { isFolder: true, name: 'css', children: ['css-file'] },
+                'css-file': { name: 'bootstrap.min.css', content: custom.bootstrap.css() },
             };
 
         })
